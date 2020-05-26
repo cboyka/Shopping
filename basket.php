@@ -4,7 +4,7 @@ $connect = mysqli_connect("localhost","root","", "testing");
 
 
 if(!isset($_SESSION['admin_name']))
-echo '<script>window.location="index.php";</script>';
+echo '<script>window.location="index.html";</script>';
 
 if(isset($_GET["action"]))
 {

@@ -1,9 +1,10 @@
 <?php 
 session_start();
-$connect = mysqli_connect("localhost", "root", "", "testing");
+$connect = mysqli_connect("localhost","root","","testing");
+
 
 if(!isset($_SESSION['admin_name']))
-echo '<script>window.location="index.php";</script>';
+echo '<script>window.location="index.html";</script>';
 
 $genderquery = "Select * from admin_login where admin_name ='".$_SESSION["admin_name"]."'";
 $genderresult = mysqli_query($connect, $genderquery);
@@ -17,17 +18,19 @@ $gender = $genderarray["gender"];
 		<script src="jquery.min.js"></script>
 		<link rel="stylesheet" href="bootstrap.min.css" />
 		<script src="bootstrap.min.js"></script>
+		<meta name="viewport" content="initial-scale=0.7">
 	</head>
 	<body style="background:url('images/header.jpg') no-repeat fixed;background-color:#abf0e9">
 		<br/>
 
+
 		<div style="background-color:blue;width:50%;float:right;height:60px;">
-			<p style="float:right" ><a href="Login/logout.php"><button class="btn btn-danger" style="margin-top:15%;margin-right:15px">Logout</button></a></p>
+			<p style="float:right" ><a href="logout.php"><button class="btn btn-danger" style="margin-top:15%;margin-right:15px">Logout</button></a></p>
 			
 				<a href="basket.php" target="_blank"><img src="images/basket.png" width="50px" height="50px" style="margin-top:8px;float:right;margin-right:360px"></a>
 				
 
-		<h3><img src='images/<?php echo $gender;?>.png' width="80px" height="80px" style='margin-left:36%;position:absolute;margin-top:0px'><span style="text-transform:uppercase;margin-left:40%;"><i>My Basket</i></span><br/><br/><br/><span style="text-transform:uppercase;margin-left:73%;"><?php echo $_SESSION["admin_name"]; ?></span><br/><br/><br/></h3>
+		<h3><img src='images/<?php echo $gender;?>.png' width="80px" height="80px" style='margin-left:770px;position:absolute;margin-top:0px'><span style="text-transform:uppercase;margin-left:300px;"><i><?php echo $_SESSION["admin_name"]; ?>'s Basket</i></span><br/><br/><br/><br/><br/><br/></h3>
 		
 
 	</div>
